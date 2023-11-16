@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blockbuster?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
+    username: root
+    password: ${MYSQL_PASSWORD}
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+    defer-datasource-initialization: true
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  sql:
+    init:
+      mode: never
+blockbuster:
+  remember.me.key: ${REMEMBER_ME_KEY}
+#logging:
+#    level:
+##      org.hibernate.SQL: DEBUG
+##      org.springframework: DEBUG
+##      org.hibernate.orm.jdbc.bind: trace
+#  #      org.hibernate.orm.jdbc.bind: TRACE
+#  #      org.springframework.security: TRACE
+
+
+

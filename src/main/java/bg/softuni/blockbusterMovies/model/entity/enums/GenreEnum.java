@@ -1,0 +1,7 @@
+package bg.softuni.blockbusterMovies.model.entity.enums;
+
+public enum GenreEnum {
+    ACTION, ADVENTURE, ANIMATION, BIOGRAPHY, COMEDY, CRIME, DOCUMENTARY, DRAMA,
+    FAMILY, FANTASY, FILM_NOIR, GAME_SHOW, HISTORY, HORROR, MUSICAL,
+    MYSTERY, ROMANCE, SCI_FI, THRILLER, WAR, WESTERN
+}
