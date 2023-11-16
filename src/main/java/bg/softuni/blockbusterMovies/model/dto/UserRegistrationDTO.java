@@ -1,6 +1,6 @@
 package bg.softuni.blockbusterMovies.model.dto;
 
-import bg.softuni.blockbusterMovies.model.entity.enums.Gender;
+import bg.softuni.blockbusterMovies.model.entity.enums.GenderEnum;
 import jakarta.validation.constraints.*;
 
 public class UserRegistrationDTO {
@@ -24,7 +24,7 @@ public class UserRegistrationDTO {
     @NotNull
     private Integer age;
     @NotNull
-    private Gender gender;
+    private GenderEnum gender;
 
     public UserRegistrationDTO() {
     }
@@ -69,11 +69,11 @@ public class UserRegistrationDTO {
         this.confirmPassword = confirmPassword;
     }
 
-    public Gender getGender() {
+    public GenderEnum getGender() {
         return gender;
     }
 
-    public void setGender(Gender gender) {
+    public void setGender(GenderEnum gender) {
         this.gender = gender;
     }
 

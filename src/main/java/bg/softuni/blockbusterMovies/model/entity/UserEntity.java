@@ -1,6 +1,6 @@
 package bg.softuni.blockbusterMovies.model.entity;
 
-import bg.softuni.blockbusterMovies.model.entity.enums.Gender;
+import bg.softuni.blockbusterMovies.model.entity.enums.GenderEnum;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Positive;
@@ -26,7 +26,7 @@ public class UserEntity extends BaseEntity {
     private Integer age;
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Gender gender;
+    private GenderEnum gender;
     @ManyToMany(fetch = FetchType.EAGER)
     @Column(nullable = false)
     private List<RoleEntity> roles = new ArrayList<>();
@@ -58,11 +58,11 @@ public class UserEntity extends BaseEntity {
         this.age = age;
     }
 
-    public Gender getGender() {
+    public GenderEnum getGender() {
         return gender;
     }
 
-    public void setGender(Gender gender) {
+    public void setGender(GenderEnum gender) {
         this.gender = gender;
     }
 

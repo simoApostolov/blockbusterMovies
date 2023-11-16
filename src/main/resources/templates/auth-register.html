@@ -68,7 +68,7 @@
                             th:field="*{gender}"
                             class="form-control">
                         <option value="">- Select gender -</option>
-                        <option th:each="g :${T (bg.softuni.blockbusterMovies.model.entity.enums.Gender).values()}"
+                        <option th:each="g :${T (bg.softuni.blockbusterMovies.model.entity.enums.GenderEnum).values()}"
                                 th:text="${g}"
                                 th:value="${g}">
 
