@@ -4,13 +4,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Pictures extends BaseEntity{
+public class PicturesEntity extends BaseEntity{
     private String name;
     private String pictureUrl;
     @ManyToOne
     private Movie movie;
     @ManyToOne
-    private Actor actor;
+    private ActorEntity actorEntity;
 
     public String getPictureUrl() {
         return pictureUrl;
@@ -28,11 +28,11 @@ public class Pictures extends BaseEntity{
         this.movie = movie;
     }
 
-    public Actor getActor() {
-        return actor;
+    public ActorEntity getActor() {
+        return actorEntity;
     }
 
-    public void setActor(Actor actor) {
-        this.actor = actor;
+    public void setActor(ActorEntity actorEntity) {
+        this.actorEntity = actorEntity;
     }
 }

@@ -13,12 +13,12 @@ public class Movie extends BaseEntity{
     private LocalDate releaseDate;
     private String description;
     @ManyToOne
-    private Pictures pictures;
+    private PicturesEntity picturesEntity;
     private String trailerUrl;
     private Integer rating;
     private BigDecimal budget;
     @OneToMany
-    private List<Actor> actors;
+    private List<ActorEntity> actorEntities;
 
     public Movie() {
     }
@@ -55,12 +55,12 @@ public class Movie extends BaseEntity{
         this.description = description;
     }
 
-    public Pictures getPictures() {
-        return pictures;
+    public PicturesEntity getPictures() {
+        return picturesEntity;
     }
 
-    public void setPictures(Pictures pictures) {
-        this.pictures = pictures;
+    public void setPictures(PicturesEntity picturesEntity) {
+        this.picturesEntity = picturesEntity;
     }
 
     public String getTrailerUrl() {

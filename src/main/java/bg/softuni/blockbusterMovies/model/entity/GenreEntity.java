@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table
-public class Genre extends BaseEntity{
+public class GenreEntity extends BaseEntity{
     @Enumerated(EnumType.STRING)
     @Column
     private GenreEnum name;

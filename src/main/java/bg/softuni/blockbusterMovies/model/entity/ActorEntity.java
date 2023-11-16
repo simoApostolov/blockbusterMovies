@@ -1,22 +1,19 @@
 package bg.softuni.blockbusterMovies.model.entity;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 
-import java.util.List;
 @Entity
-public class Actor extends BaseEntity{
+public class ActorEntity extends BaseEntity{
     private String fullName;
     private Integer age;
     private String info;
     @ManyToOne
     private Movie movieList;
     @ManyToOne
-    private Pictures pictures;
+    private PicturesEntity picturesEntity;
 
-    public Actor() {
+    public ActorEntity() {
     }
 
     public String getFullName() {
@@ -51,11 +48,11 @@ public class Actor extends BaseEntity{
         this.movieList = movieList;
     }
 
-    public Pictures getPictures() {
-        return pictures;
+    public PicturesEntity getPictures() {
+        return picturesEntity;
     }
 
-    public void setPictures(Pictures pictures) {
-        this.pictures = pictures;
+    public void setPictures(PicturesEntity picturesEntity) {
+        this.picturesEntity = picturesEntity;
     }
 }
