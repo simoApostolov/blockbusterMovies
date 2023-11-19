@@ -4,10 +4,13 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.PastOrPresent;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Period;
 import java.util.List;
 
 @Entity
-public class ActorEntity extends BaseEntity{
+@Table(name = "directors")
+public class DirectorEntity extends BaseEntity {
     @Column(nullable = false)
     private String firstName;
     @Column(nullable = false)
@@ -15,13 +18,10 @@ public class ActorEntity extends BaseEntity{
     @PastOrPresent
     private LocalDate birthDate;
     private Integer age;
-    @Column(columnDefinition = "text")
-    private String bio;
-    @ManyToMany(fetch = FetchType.LAZY)
-    private List<MovieEntity> filmography;
-    private String imageUrl;
+    @OneToMany(mappedBy = "director", fetch = FetchType.EAGER)
+    private List<MovieEntity> movies;
 
-    public ActorEntity() {
+    public DirectorEntity() {
     }
 
     public String getFirstName() {
@@ -40,6 +40,14 @@ public class ActorEntity extends BaseEntity{
         this.lastName = lastName;
     }
 
+    public List<MovieEntity> getMovies() {
+        return movies;
+    }
+
+    public void setMovies(List<MovieEntity> movies) {
+        this.movies = movies;
+    }
+
     public LocalDate getBirthDate() {
         return birthDate;
     }
@@ -55,28 +63,11 @@ public class ActorEntity extends BaseEntity{
     public void setAge(Integer age) {
         this.age = age;
     }
+    public Integer setAge(LocalDate currentDate) {
+        int age = 0;
 
-    public String getBio() {
-        return bio;
-    }
+        age = Period.between(birthDate, currentDate).getDays();
 
-    public void setBio(String bio) {
-        this.bio = bio;
-    }
-
-    public List<MovieEntity> getFilmography() {
-        return filmography;
-    }
-
-    public void setFilmography(List<MovieEntity> filmography) {
-        this.filmography = filmography;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+        return age;
     }
 }

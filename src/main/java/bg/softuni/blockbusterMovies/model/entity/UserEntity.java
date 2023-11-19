@@ -30,6 +30,8 @@ public class UserEntity extends BaseEntity {
     @ManyToMany(fetch = FetchType.EAGER)
     @Column(nullable = false)
     private List<RoleEntity> roles = new ArrayList<>();
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private List<ReviewEntity> reviews;
 
     public UserEntity() {
     }
@@ -91,5 +93,13 @@ public class UserEntity extends BaseEntity {
     }
     public void addRole(RoleEntity role) {
         this.roles.add(role);
+    }
+
+    public List<ReviewEntity> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<ReviewEntity> reviews) {
+        this.reviews = reviews;
     }
 }
